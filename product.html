@@ -1,0 +1,39 @@
+<form action="pro.php" method="post">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="name" placeholder="name">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="price" placeholder="price">
+                </div>
+				 <div class="form-group">
+                  <input type="text" class="form-control" name="picture" placeholder="picture">
+                </div>
+				 <div class="form-group">
+                  <input type="text" class="form-control" name="description" placeholder="description">
+				  
+                </div>
+			
+                  <label>catagorty</label>
+                 
+		
+  <select> <?php
+					include('connect.php');
+					$sql="SELECT * FROM `categories`"
+					$query=mysql_query($connect,$sql);
+					
+					
+					while($row=mysql_fetch_assoc($query))
+{
+
+echo"<option value=".$row['id'].">".$row['name']."</option>";
+}
+			
+   ?>
+</select>
+<input type="hidden" name="selected_text" id="selected_text" value="" />
+<input type="submit" name="s" value="Submit"/>
+				
+			
+				
+                
+              </form>
